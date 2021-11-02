@@ -1,0 +1,147 @@
+﻿{
+  "sql_url": "jdbc:mysql://192.168.210.153:3399?connectTimeout=3000&socketTimeout=60000&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC",
+  "sql_username": "rjsoft",
+  "sql_password": "abcd1234",
+  "sql_driver": "com.mysql.cj.jdbc.Driver",
+  "driver_manager_log": false,
+  "options": [
+    {
+      "enable": true,
+      "vesion": "1.6.7",
+      "ftppath": "d:/FTP_XC/",
+      "domino_server": "OA/SRV/FJSF",
+      "domino_query": "Form=\"FlowForm\" & MSSDATABASE!=\"\" & DraftDate > [2020-07-20] & DraftDate < [2020-07-25]",
+      "domino_queries": [
+        {
+          "enable": true,
+          "error_continue": true,
+          "domino_dbpath": "egov/dispatch.nsf"
+        }
+      ],
+      "domino_after_prepared_driver": "com.lwjhn.domino2sql.driver.AfterPrepareDocument",
+      "domino_prepared_sqlquery_driver": "com.rjsoft.prepared.PrepareSqlQueryRJDoc",
+      "domino_process_statement_driver": "com.rjsoft.prepared.ProcessStatementRJDocNoCache",
+      "extended_options": {
+        "export_flow": true,
+        "export_opinion": true,
+        "export_processing": true,
+        "sql_field_attachment": {
+          "sql_name": "JSONATT",
+          "jdbc_type": "VARCHAR",
+          "scale_length": 0
+        }
+      },
+      "sql_table": "XC_DEMO.EGOV_DISPATCH_HISTORY",
+      "sql_field_others": [
+        {
+          "sql_name": "ID",
+          "domino_name": "ArcXC_UUID_16",
+          "jdbc_type": "VARCHAR",
+          "scale_length": 0
+        },
+        {
+          "sql_name": "DOMINOID",
+          "domino_formula": "@Text(@DocumentUniqueID)",
+          "jdbc_type": "VARCHAR",
+          "scale_length": 0
+        },
+        {
+          "sql_name": "Subject",
+          "domino_name": "Subject",
+          "jdbc_type": "VARCHAR",
+          "scale_length": 0
+        },
+        {
+          "sql_name": "DocWord",
+          "domino_name": "DocWord",
+          "jdbc_type": "VARCHAR",
+          "scale_length": 0
+        },
+        {
+          "sql_name": "DocType",
+          "domino_name": "DocType",
+          "jdbc_type": "VARCHAR",
+          "scale_length": 0
+        },
+        {
+          "sql_name": "UrgentLevel",
+          "domino_name": "UrgentLevel",
+          "jdbc_type": "VARCHAR",
+          "scale_length": 0
+        },
+        {
+          "sql_name": "DraftDept",
+          "domino_name": "DraftDept",
+          "jdbc_type": "VARCHAR",
+          "scale_length": 0
+        },
+        {
+          "sql_name": "SecLevel",
+          "domino_name": "SecLevel",
+          "jdbc_type": "VARCHAR",
+          "scale_length": 0
+        },
+        {
+          "sql_name": "FileType",
+          "domino_name": "FileType",
+          "jdbc_type": "VARCHAR",
+          "scale_length": 0
+        },
+        {
+          "sql_name": "IsPublic",
+          "domino_name": "IsPublic",
+          "jdbc_type": "VARCHAR",
+          "scale_length": 0
+        },
+        {
+          "sql_name": "MainSend",
+          "domino_name": "MainSend",
+          "jdbc_type": "VARCHAR",
+          "scale_length": 0
+        },
+        {
+          "sql_name": "CopySend",
+          "domino_name": "CopySend",
+          "jdbc_type": "VARCHAR",
+          "scale_length": 0
+        },
+        {
+          "sql_name": "PrintTerm",
+          "domino_name": "PrintTerm",
+          "jdbc_type": "VARCHAR",
+          "scale_length": 0
+        },
+        {
+          "sql_name": "Remark",
+          "domino_name": "Remark",
+          "jdbc_type": "VARCHAR",
+          "scale_length": 0
+        },
+        {
+          "sql_name": "SignDateTime",
+          "domino_formula": "temp:=SignDate;temp:=@If(@IsTime(temp);temp;@TextToTime(@ReplaceSubstring(temp;\"年\":\"月\":\"日\";\"-\":\"-\":\"\")));@if(@IsError(temp) | @IsNull(temp);@Nothing;temp);",
+          "jdbc_type": "TIMESTAMP",
+          "scale_length": 0
+        },
+        {
+          "sql_name": "DraftDate",
+          "domino_name": "DraftDate",
+          "jdbc_type": "TIMESTAMP",
+          "scale_length": 0
+        },
+        {
+          "sql_name": "PrintNum",
+          "jdbc_type": "INTEGER",
+          "domino_formula": "1",
+          "scale_length": 0
+        },
+        {
+          "sql_name": "OTHER",
+          "jdbc_type": "VARCHAR",
+          "domino_formula": "@Nothing",
+          "scale_length": 0
+        }
+      ]
+    }
+  ]
+}
