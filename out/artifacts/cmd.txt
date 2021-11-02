@@ -3,4 +3,4 @@ java -DDominoHost="192.168.211.53:63148" -DDominoUser="Admin" -DDominoPassword="
 java -DDominoHost="192.168.211.53:63148" -DDominoUser="Admin" -DDominoPassword="Fjsft_123"  -DDominoPath="C:/Workspaces/XinChuang/公共组件/domino2sql-app/src/main/resources/arc.sql.config.json" -jar ./domino2sql-app.jar
 
 
-注意：domino服务器需要启动doiip服务，命令load doiip
+注意：domino服务器需要启动doiip服务，命令load diiop
