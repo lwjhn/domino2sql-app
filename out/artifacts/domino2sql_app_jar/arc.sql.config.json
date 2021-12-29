@@ -1,8 +1,8 @@
 ﻿{
-  "sql_url": "jdbc:mysql://192.168.210.153:3399?connectTimeout=3000&socketTimeout=60000&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC",
-  "sql_username": "rjsoft",
-  "sql_password": "abcd1234",
-  "sql_driver": "com.mysql.cj.jdbc.Driver",
+  "sql_url": "jdbc:dm://192.168.210.77:5236?connectTimeout=3000&socketTimeout=60000&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC",
+"sql_username": "SFTOA",
+"sql_password": "123456789",
+"sql_driver": "dm.jdbc.driver.DmDriver",
   "driver_manager_log": false,
   "options": [
     {
@@ -31,7 +31,7 @@
           "scale_length": 0
         }
       },
-      "sql_table": "XC_DEMO.EGOV_DISPATCH_HISTORY",
+      "sql_table": "EGOV_DISPATCH_HISTORY",
       "sql_field_others": [
         {
           "sql_name": "ID",

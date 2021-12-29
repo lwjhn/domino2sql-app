@@ -12,8 +12,8 @@
 		"domino_process_statement_driver":"com.rjsoft.prepared.ProcessStatementRJDocNoCache",
 		"domino_queries":[{
 			"action_all_count":8,
-			"action_err_count":0,
-			"action_succ_count":8,
+			"action_err_count":1,
+			"action_succ_count":7,
 			"debugger":true,
 			"domino_dbpath":"egov/dispatch.nsf",
 			"domino_error_flag_field":"ArcXC_Error_FLAG",
@@ -173,12 +173,12 @@
 			"scale_length":0,
 			"sql_name":"OTHER"
 		}],
-		"sql_table":"XC_DEMO.EGOV_DISPATCH_HISTORY",
+		"sql_table":"EGOV_DISPATCH_HISTORY",
 		"update_mode_no_insert":true,
 		"vesion":"1.6.7"
 	}],
-	"sql_driver":"com.mysql.cj.jdbc.Driver",
-	"sql_password":"abcd1234",
-	"sql_url":"jdbc:mysql://192.168.210.153:3399?connectTimeout=3000&socketTimeout=60000&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC",
-	"sql_username":"rjsoft"
+	"sql_driver":"dm.jdbc.driver.DmDriver",
+	"sql_password":"123456789",
+	"sql_url":"jdbc:dm://192.168.210.77:5236?connectTimeout=3000&socketTimeout=60000&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC",
+	"sql_username":"SFTOA"
 }

@@ -10,10 +10,13 @@ import java.io.File;
 import java.util.Scanner;
 
 public class DiiopApplication {
+    public static String host;
+    public static int port = 63148;
+
     public static void main(String[] args) {
         //java -DDominoHost="192.168.211.53:63148" -DDominoUser="Admin" -DDominoPassword="Fjsft_123" -DDominoPath="./arc.sql.config.sft.json" -DDominoOutput=./arc.sql.config.output.json -jar ./domino2sql-app.jar
         String host, user, password, path, output = null;
-        if ((host = System.getProperty("DominoHost")) == null) {
+        if ((host = System.getProperty("DominoHost")) == null || "".equals(host.trim())) {
             throw new RuntimeException("domino host is null !");
         }
         if ((user = System.getProperty("DominoUser")) == null) {
@@ -36,8 +39,11 @@ public class DiiopApplication {
         try {
             System.out.println("ArchXC Agent Start . ");
             System.out.println("config file path : " + new File(path).getCanonicalPath());
-
+            DiiopApplication.host = host.replaceAll(":\\d*$", "");
+            String port = host.replaceAll(".*:", "").trim();
+            DiiopApplication.port = "".equals(port) ? 63148 : Integer.parseInt(port);
             System.out.printf("connect to host(%s) , user(%s), password(%s) \n", host, user, password);
+
             session = NotesFactory.createSession(host, user, password);
             System.out.println("connected ....");
 

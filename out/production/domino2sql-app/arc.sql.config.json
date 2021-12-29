@@ -8,7 +8,7 @@
     {
       "enable": true,
       "vesion": "1.6.7",
-      "ftppath": "d:/FTP_XC/",
+      "ftppath": "/FTP_XC/",
       "domino_server": "OA/SRV/FJSF",
       "domino_query": "Form=\"FlowForm\" & MSSDATABASE!=\"\" & DraftDate > [2020-07-20] & DraftDate < [2020-07-25]",
       "domino_queries": [
