@@ -5,6 +5,7 @@ import com.lwjhn.domino2sql.config.ArcConfig;
 import com.lwjhn.util.CloseableBase;
 import lotus.domino.NotesFactory;
 import lotus.domino.Session;
+import lotus.priv.CORBA.iiop.Profile;
 
 import java.io.File;
 import java.util.Scanner;
@@ -39,12 +40,12 @@ public class DiiopApplication {
         try {
             System.out.println("ArchXC Agent Start . ");
             System.out.println("config file path : " + new File(path).getCanonicalPath());
-            DiiopApplication.host = host.replaceAll(":\\d*$", "");
+            Profile.PROXY_HOST = host.replaceAll(":\\d*$", "");
             String port = host.replaceAll(".*:", "").trim();
-            DiiopApplication.port = "".equals(port) ? 63148 : Integer.parseInt(port);
+            Profile.PROXY_PORT = "".equals(port) ? 63148 : Integer.parseInt(port);
             System.out.printf("connect to host(%s) , user(%s), password(%s) \n", host, user, password);
 
-            session = NotesFactory.createSession(host, user, password);
+            session = NotesFactory.createSession(host, args, user, password);
             System.out.println("connected ....");
 
             config = ArcConfigSerialization.parseArcConfig(new File(path));    //(new File(this.getClass().getResource("./arc.sql.config.json").getFile()));
