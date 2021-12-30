@@ -899,7 +899,7 @@ public class ORB extends org.omg.CORBA.ORB {
 
             for(int var5 = 0; var4 < var1.length(); ++var5) {
                 var2[var5] = (byte)(hexOf(var1.charAt(var4)) << 4 & 240);
-                var2[var5] |= (byte)(hexOf(var1.charAt(var4 + 1)) << 0 & 15);
+                var2[var5] |= (byte)(hexOf(var1.charAt(var4 + 1)) & 15);
                 var4 += 2;
             }
 

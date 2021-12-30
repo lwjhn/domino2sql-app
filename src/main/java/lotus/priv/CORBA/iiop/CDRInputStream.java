@@ -49,8 +49,8 @@ public class CDRInputStream extends InputStream {
         return new CDRInputStream(this);
     }
 
-    private final void alignAndCheck(int var1, int var2) {
-        int var3 = this.index - 1 + var1 & ~(var1 - 1);
+    private void alignAndCheck(int var1, int var2) {
+        int var3 = this.index - 1 + var1 & -var1;
         if (var3 + var2 <= this.size) {
             this.index = var3;
         } else {
@@ -71,18 +71,12 @@ public class CDRInputStream extends InputStream {
     }
 
     public final boolean read_boolean() {
-        boolean var1 = this.read_octet() != 0;
-        return var1;
+        return this.read_octet() != 0;
     }
 
     public final char read_char() {
         this.alignAndCheck(1, 1);
-        char var1 = (char)(this.buf[this.index++] & 255);
-        if (var1 > 255) {
-            throw new DATA_CONVERSION(6, CompletionStatus.COMPLETED_NO);
-        } else {
-            return var1;
-        }
+        return (char)(this.buf[this.index++] & 255);
     }
 
     public final char read_wchar() {
@@ -90,11 +84,11 @@ public class CDRInputStream extends InputStream {
         int var1;
         int var2;
         if (this.littleEndian) {
-            var2 = this.buf[this.index++] << 0 & 255;
+            var2 = this.buf[this.index++] & 255;
             var1 = this.buf[this.index++] << 8 & '\uff00';
         } else {
             var1 = this.buf[this.index++] << 8 & '\uff00';
-            var2 = this.buf[this.index++] << 0 & 255;
+            var2 = this.buf[this.index++] & 255;
         }
 
         return (char)(var1 | var2);
@@ -110,11 +104,11 @@ public class CDRInputStream extends InputStream {
         int var1;
         int var2;
         if (this.littleEndian) {
-            var2 = this.buf[this.index++] << 0 & 255;
+            var2 = this.buf[this.index++] & 255;
             var1 = this.buf[this.index++] << 8 & '\uff00';
         } else {
             var1 = this.buf[this.index++] << 8 & '\uff00';
-            var2 = this.buf[this.index++] << 0 & 255;
+            var2 = this.buf[this.index++] & 255;
         }
 
         return (short)(var1 | var2);

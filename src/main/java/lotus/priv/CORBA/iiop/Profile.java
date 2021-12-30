@@ -29,10 +29,10 @@ public final class Profile {
         var2.consumeEndian();
         this.major = var2.read_octet();
         this.minor = var2.read_octet();
-        System.out.println(this.host = var2.read_string());
-        this.host = DiiopApplication.host;  //
-        System.out.println(this.port = var2.read_short() & '\uffff');
-        this.port = DiiopApplication.port;  //var2.read_short() & '\uffff';
+        this.host = var2.read_string();
+        //this.host = DiiopApplication.host;
+        this.port = var2.read_short() & '\uffff';
+        //this.port = DiiopApplication.port;
         this.objectKey = new byte[var2.read_long()];
         var2.read_octet_array(this.objectKey, 0, this.objectKey.length);
         if (this.minor > 0) {

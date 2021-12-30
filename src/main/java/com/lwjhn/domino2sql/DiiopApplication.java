@@ -14,7 +14,7 @@ public class DiiopApplication {
     public static int port = 63148;
 
     public static void main(String[] args) {
-        //java -DDominoHost="192.168.211.53:63148" -DDominoUser="Admin" -DDominoPassword="Fjsft_123" -DDominoPath="./arc.sql.config.sft.json" -DDominoOutput=./arc.sql.config.output.json -jar ./domino2sql-app.jar
+        //java -DDominoHost="192.168.211.53:63148" -DDominoUser="Admin" -DDominoPassword="Fjsft_123" -DDominoPath="./arc.sql.config.sft.json" -DDominoOutput="./arc.sql.config.output.json" -jar ./domino2sql-app.jar
         String host, user, password, path, output = null;
         if ((host = System.getProperty("DominoHost")) == null || "".equals(host.trim())) {
             throw new RuntimeException("domino host is null !");
@@ -25,10 +25,10 @@ public class DiiopApplication {
         if ((password = System.getProperty("DominoPassword")) == null) {
             throw new RuntimeException("domino password is null !");
         }
-        if ((path = System.getProperty("DominoPath")) == null) {
+        if ((path = System.getProperty("DominoPath")) == null || "".equals(path.trim())) {
             path = "./arc.sql.config.json";
         }
-        if ((output = System.getProperty("DominoOutput")) == null) {
+        if ((output = System.getProperty("DominoOutput")) == null || "".equals(output.trim())) {
             output = "./arc.sql.config.output.json";
         }
         System.out.printf("java -DDominoHost=\"%s\" -DDominoUser=\"%s\" -DDominoPassword=\"%s\" -DDominoPath=\"%s\" -DDominoOutput=\"%s\" -jar ./domino2sql-app.jar\n",
