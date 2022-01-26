@@ -12,8 +12,8 @@
 		"domino_process_statement_driver":"com.rjsoft.prepared.ProcessStatementRJDocNoCache",
 		"domino_queries":[{
 			"action_all_count":8,
-			"action_err_count":0,
-			"action_succ_count":8,
+			"action_err_count":8,
+			"action_succ_count":0,
 			"debugger":true,
 			"domino_dbpath":"egov/dispatch.nsf",
 			"domino_error_flag_field":"ArcXC_Error_FLAG",
