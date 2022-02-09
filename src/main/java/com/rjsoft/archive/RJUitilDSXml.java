@@ -65,8 +65,8 @@ public class RJUitilDSXml extends UtilXML {
                 query.add("Form=\"WordConfig\" & FlowName=\"" + DataSourceTName.replaceAll("\"", "\\\"") + "\\\\" + FileStyleTName.replaceAll("\"", "\\\"") + "\"");
             query.add("Form=\"WordConfig\" & (Name=\"DefaultConfig\" | FlowName=\"DefaultConfig\")");
             DataSourceTName = FileStyleTName = "";
+            boolean recycle = true;
             for (String formula : query) {
-                if (!(tdoc == null || xmldoc == tdoc || xsldoc == tdoc)) BaseUtils.recycle(tdoc);
                 //System.out.println("Formula: " + formula);
                 if ((tdoc = doc.getParentDatabase().search(formula, null, 1).getFirstDocument()) == null) continue;
                 if (xmldoc == null && !"".equals(DataSourceTName = getDataSourceTName(tdoc, "DataSourceTName"))) {
@@ -74,6 +74,10 @@ public class RJUitilDSXml extends UtilXML {
                 }
                 if (xsldoc == null && !"".equals(FileStyleTName = getDataSourceTName(tdoc, "FileStyleTName"))) {
                     xsldoc = tdoc;
+                }
+                if (xmldoc != tdoc && xsldoc != tdoc){
+                    BaseUtils.recycle(tdoc);
+                    tdoc = null;
                 }
                 if(xmldoc!=null && xsldoc!=null) break;
                 //System.out.println("DataSourceTName: " + DataSourceTName + " , FileStyleTName: " + FileStyleTName);
