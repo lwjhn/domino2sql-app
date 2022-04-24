@@ -14,7 +14,11 @@ public class DiiopApplication {
     public static String host;
     public static int port = 63148;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+        System.out.println(System.getProperty("user.dir"));
+        JarLoader.load(System.getProperty("user.dir"));
+        JarLoader.load(System.getProperty("user.dir")+"/lib");
+
         //java -Dsun.jnu.encoding=UTF-8 -DDominoHost="192.168.211.53:63148" -DDominoUser="Admin" -DDominoPassword="Fjsft_123" -DDominoPath="./arc.sql.config.sft.json" -DDominoOutput="./arc.sql.config.output.json" -jar ./domino2sql-app.jar
         String host, user, password, path, output = null;
         if ((host = System.getProperty("DominoHost")) == null || "".equals(host.trim())) {
