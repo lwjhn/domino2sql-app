@@ -52,7 +52,6 @@ public class DiiopApplication {
             action = new Action(config, session, 1000, 1000);
             System.out.println("Authority : " + Domino2SqlHelp.join(session.evaluate("@UserName"), "; ", null));
             action.archive();
-            action = null;
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
